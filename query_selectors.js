@@ -1,6 +1,0 @@
-export const pen = document.querySelector('.tools__pen')
-export const color = document.querySelector('.tools__color')
-export const range = document.querySelector('.tools__range')
-export const eraser = document.querySelector('.tools__eraser')
-export const square = document.querySelector('.tools__square')
-export const circle = document.querySelector('.tools__circle')
