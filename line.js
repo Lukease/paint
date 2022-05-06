@@ -26,7 +26,7 @@ export const drawLine = event => {
         ctx.stroke()
         tempPath = {
             ...tempPath,
-            paths: tempPath.paths.concat({x, y})
+            paths: tempPath.paths.concat({ x, y })
         }
 
         return tempPath

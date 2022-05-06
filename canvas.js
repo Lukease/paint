@@ -26,11 +26,11 @@ export const renderCircle = shape => {
     ctx.stroke()
 }
 
-export const renderPath = (shape) => {
+export const renderPath = shape => {
     ctx.beginPath()
     canvasStyle(shape)
 
-    shape.paths.forEach(({x, y}) => {
+    shape.paths.forEach(({ x, y }) => {
         ctx.lineTo(x, y)
         ctx.stroke()
 
