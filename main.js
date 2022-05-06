@@ -2,7 +2,7 @@ import { createToolsBox } from '/tools.js'
 import { drawSquare, paintFigure, addSquare } from './square.js'
 import { drawLine, paintLine, addPath } from './line.js'
 import { drawCircle, circleTemp, addCircle } from './circle.js'
-import { ctx, canvas, clearCanvas, canvasStyle, renderSquare, renderCircle } from './canvas.js'
+import { ctx, canvas, clearCanvas, canvasStyle, renderSquare, renderCircle, renderPath } from './canvas.js'
 
 export let x = 0
 export let y = 0
@@ -15,13 +15,7 @@ export const renderShapes = () => {
     shapes.forEach((shape, index) => {
         switch (shape.type) {
             case 'path': {
-                ctx.beginPath()
-                canvasStyle(shape)
-
-                shape.paths.forEach(({x, y}) => {
-                    ctx.lineTo(x, y)
-                    ctx.stroke()
-                })
+                renderPath(shape)
             }
 
             case 'square': {
@@ -71,11 +65,7 @@ circle.addEventListener('click', () => {
 
 eraser.addEventListener('click', erase)
 
-
 canvas.addEventListener('mousedown', event => {
-    if (activeTool === '') {
-    }
-
     if (activeTool === 'line') {
         paintLine()
     }

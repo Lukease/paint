@@ -1,5 +1,5 @@
-export const canvas = document.querySelector("#canvas")
-export const ctx = canvas.getContext("2d")
+export const canvas = document.querySelector('#canvas')
+export const ctx = canvas.getContext('2d')
 
 ctx.font = '16px Arial'
 canvas.setAttribute('width', `${canvas.scrollWidth}`)
@@ -22,6 +22,17 @@ export const renderSquare = shape => {
 export const renderCircle = shape => {
     ctx.beginPath()
     canvasStyle(shape)
-    ctx.arc(shape.paths.x, shape.paths.y, shape.paths.radius, shape.startX, shape.paths.endAngle)
+    ctx.arc(shape.x, shape.y, shape.radius, shape.startX, shape.endAngle)
     ctx.stroke()
+}
+
+export const renderPath = (shape) => {
+    ctx.beginPath()
+    canvasStyle(shape)
+
+    shape.paths.forEach(({x, y}) => {
+        ctx.lineTo(x, y)
+        ctx.stroke()
+
+    })
 }

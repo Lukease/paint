@@ -35,7 +35,7 @@ export const drawSquare = (event, startX, startY) => {
 
         tempSquare = {
             ...tempSquare,
-            paths: tempSquare.paths.concat({w, h})
+            paths: tempSquare.paths.concat({ w, h })
         }
 
         return tempSquare

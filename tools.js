@@ -8,7 +8,7 @@ export const createToolsBox = () => {
     toolBox.classList.add('tools')
     paint.appendChild(toolBox)
 
-    const pen = document.createElement('Button')
+    const pen = document.createElement('button')
 
     pen.classList.add('tools__pen')
     toolBox.appendChild(pen)

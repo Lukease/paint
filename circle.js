@@ -2,19 +2,21 @@ import { position, x, y, color, range, activeTool } from './main.js'
 import { canvas, ctx } from './canvas.js'
 
 let tempCircle = null
+let radius = 0
+let endAngle = 0
 
-export const circleTemp = (startX) => {
+export const circleTemp = startX => {
     tempCircle = {
         type: 'circle',
-        paths: [
-            {
-                tempCircle
-            }
-        ],
         color: color.value,
         width: range.value,
         startX,
+        x,
+        y,
+        radius,
+        endAngle
     }
+
     return tempCircle
 }
 
@@ -26,14 +28,17 @@ export const drawCircle = (event, startX) => {
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         ctx.beginPath()
 
-        const radius = Math.abs(x - startX)
-        const endAngle = x * Math.PI
+        radius = Math.abs(x - startX)
+        endAngle = x * Math.PI
 
         ctx.arc(x, y, radius, startX, endAngle)
         ctx.stroke()
         tempCircle = {
             ...tempCircle,
-            paths: tempCircle.paths.concat({x, y, radius, endAngle})
+            x,
+            y,
+            radius,
+            endAngle
         }
 
         return tempCircle
@@ -41,9 +46,6 @@ export const drawCircle = (event, startX) => {
 }
 
 export const addCircle = onAddShape => {
-    const circleXY = tempCircle.paths.length - 1
-
-    tempCircle.paths = tempCircle.paths[circleXY]
     onAddShape(tempCircle)
     tempCircle = null
 }
