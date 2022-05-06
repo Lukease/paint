@@ -16,14 +16,20 @@ export const renderShapes = () => {
         switch (shape.type) {
             case 'path': {
                 renderPath(shape)
+
+                return
             }
 
             case 'square': {
                 renderSquare(shape)
+
+                return
             }
 
             case 'circle': {
                 renderCircle(shape)
+
+                return
             }
             default:
                 return null
